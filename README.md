@@ -1,7 +1,16 @@
+# org-roam-download
+
+This extension is based on [`abo-abo/org-downnload`](https://github.com/abo-abo/org-download) and has some functions to work with [`org-roam`](https://www.orgroam.com).
+
+`org-roam-download` stores all images in the `org-roam-download-image-dir`, which is the `images/` under the `org-roam-directory` by default. Since `org-roam` assigns each node (i.e., file) an ID, this extension creates a directory under the `org-roam-download-image-dir` with the ID of this nodeas the name to store all the images referenced by this node. Replace functions prefixed with `org-download-` to `org-roam-download-` should do the job.
+
+- [x] org-roam-download-clipboard $\leftarrow$ org-download-clipboard
+
+> Working on other functions... 
+
 # org-download
 
-[![MELPA](https://melpa.org/packages/org-download-badge.svg)](https://melpa.org/#/org-download)
-[![MELPA Stable](https://stable.melpa.org/packages/org-download-badge.svg)](https://stable.melpa.org/#/org-download)
+> I changed the default value of `org-download-heading-lvl` from `0` to `nil` because of personal preference and for convenience. :)
 
 This extension facilitates moving images from point **A** to point **B**.
 

@@ -97,7 +97,7 @@ See `org-download--dir-1' for more info."
           (string :tag "Directory")))
 (make-variable-buffer-local 'org-download-image-dir)
 
-(defcustom org-download-heading-lvl 0
+(defcustom org-download-heading-lvl nil ; default value changed from 0 to nil by Pavinberg
   "Heading level to be used in `org-download--dir-2'."
   :type
   '(choice integer (const :tag "None" nil)))
@@ -209,7 +209,7 @@ For example:
 (declare-function posframe-show "ext:posframe")
 
 (defun org-download-org-mode-p ()
-  "Return `t' if major-mode or derived-mode-p equals 'org-mode, otherwise `nil'."
+  "Return t if major-mode or `derived-mode-p' equals 'org-mode, otherwise nil."
   (or (eq major-mode 'org-mode) (when (derived-mode-p 'org-mode) t)))
 
 (defun org-download--display-inline-images ()
@@ -247,7 +247,6 @@ For example:
   "Return the first part of the directory path for `org-download--dir'.
 It's `org-download-image-dir', unless it's nil.  Then it's \".\"."
   (or org-download-image-dir "."))
-
 (defun org-download--dir-2 ()
   "Return the second part of the directory path for `org-download--dir'.
 Unless `org-download-heading-lvl' is nil, it's the name of the current
