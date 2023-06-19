@@ -5,8 +5,21 @@ This extension is based on [`abo-abo/org-downnload`](https://github.com/abo-abo/
 `org-roam-download` stores all images in the `org-roam-download-image-dir`, which is the `images/` under the `org-roam-directory` by default. Since `org-roam` assigns each node (i.e., file) an ID, this extension creates a directory under the `org-roam-download-image-dir` with the ID of this nodeas the name to store all the images referenced by this node. Replace functions prefixed with `org-download-` to `org-roam-download-` should do the job.
 
 - [x] org-roam-download-clipboard $\leftarrow$ org-download-clipboard
+- [x] org-roam-download-yank $\leftarrow$ org-download-yank
 
 > Working on other functions... 
+
+## Set up
+
+```elisp
+(require 'org-roam-download)
+
+;; Drag-and-drop to `dired`
+(add-hook 'dired-mode-hook 'org-download-enable)
+```
+
+## Pasting from the clipboard
+If you have the image stored in the clipboard, use `org-roam-download-clipboard`.
 
 # org-download
 
@@ -66,15 +79,3 @@ optionally add a timestamp to the file name.
 
 Customize `org-download-backend` to choose between `url-retrieve`
 (the default) or `wget` or `curl`.
-
-## Set up
-
-```elisp
-(require 'org-download)
-
-;; Drag-and-drop to `dired`
-(add-hook 'dired-mode-hook 'org-download-enable)
-```
-
-## Pasting from the clipboard
-If you have the image stored in the clipboard, use `org-download-clipboard`.

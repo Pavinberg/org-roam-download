@@ -7,17 +7,11 @@
 (require 'org-roam)
 (require 'org-download)
 
-(defcustom org-download-heading-lvl nil
-  "Heading level to be used in `org-download--dir-2'."
-  :type
-  '(choice integer (const :tag "None" nil)))
-(make-variable-buffer-local 'org-download-heading-lvl)
-
-(when *is-a-mac* (setq org-download-screenshot-method "screencapture"))
-;; (setq org-download-heading-lvl nil)
+(when (eq system-type 'darwin)
+  (setq org-download-screenshot-method "screencapture"))
 
 (defgroup org-roam-download nil
-  "Image drag-and-drop for `org-roam`'."
+  "Image drag-and-drop for org-roam."
   :group 'org-download
   :prefix "org-roam-download-")
 
@@ -39,7 +33,7 @@
   (org-download-yank))
 
 (defun org-roam-download-clipboard ()
-  "Call `org-download-yank' after setting correct directory."
+  "Call `org-download-clipboard' after setting correct directory."
   (interactive)
   (setq org-download-image-dir (org-roam-download-create-image-dir))
   (org-download-clipboard))
