@@ -713,7 +713,7 @@ Otherwise, pass URI and ACTION back to dnd dispatch."
   "Disable org-download."
   (rassq-delete-all 'org-download-dnd dnd-protocol-alist))
 
-(org-download-enable)
+;; (org-download-enable)
 
 (provide 'org-download)
 

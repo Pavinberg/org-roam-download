@@ -6,6 +6,7 @@ This extension is based on [`abo-abo/org-downnload`](https://github.com/abo-abo/
 
 - [x] org-roam-download-clipboard $\leftarrow$ org-download-clipboard
 - [x] org-roam-download-yank $\leftarrow$ org-download-yank
+- [x] drag and drop
 
 > Working on other functions... 
 
@@ -15,7 +16,7 @@ This extension is based on [`abo-abo/org-downnload`](https://github.com/abo-abo/
 (require 'org-roam-download)
 
 ;; Drag-and-drop to `dired`
-(add-hook 'dired-mode-hook 'org-download-enable)
+(add-hook 'dired-mode-hook 'org-roam-download-enable)
 ```
 
 ## Pasting from the clipboard
